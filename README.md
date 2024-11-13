@@ -3,4 +3,5 @@ Project created to complement the solution to the problems faced by wholesalers 
 This project seeks to improve the efficiency of the sales process, speed up the learning process of workers and reduce the number of errors in sales notes due to the poor implementation of technological tools that will greatly solve these problems.
 # DEPENDECIES
 -You need to install the driver: "mysql-connector-j-8.3.0" for the communication of the project with the database.
+
 -Install the database locally (preferably through xampp)
