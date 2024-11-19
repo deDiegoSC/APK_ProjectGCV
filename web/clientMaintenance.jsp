@@ -138,6 +138,10 @@
                                 <label for="address">Direccion</label>
                                 <input type="text" class="form-control" id="address" name="address" required>
                             </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

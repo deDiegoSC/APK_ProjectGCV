@@ -19,13 +19,14 @@ public class ClienteDAO {
 
         try {
             conn = Conexion.getConnection();
-            String sql = "INSERT INTO cliente (name, lastname, email, phone, address) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO cliente (name, lastname, email, phone, address,password) VALUES (?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, client.getName());
             pstmt.setString(2, client.getLastname());
             pstmt.setString(3, client.getEmail());
             pstmt.setString(4, client.getPhone());
             pstmt.setString(5, client.getAddress());
+            pstmt.setString(6, client.getPassword());
 
             int rowsInserted = pstmt.executeUpdate();
             if (rowsInserted > 0) {
@@ -260,7 +261,7 @@ public class ClienteDAO {
         return objCliente;
     }
 
-    public int validarClient(Empleado c) {
+    public int validarClient(Cliente c) {
         int r = 0;
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -268,10 +269,10 @@ public class ClienteDAO {
 
         try {
             conn = Conexion.getConnection();
-            String sql = "SELECT * FROM employee where username=? and password=?";
+            String sql = "SELECT * FROM cliente where email=? and password=?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, c.getUsername());
-            pstmt.setString(2, c.getUsername());
+            pstmt.setString(1, c.getEmail());
+            pstmt.setString(2, c.getPassword());
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 r = r + 1;
@@ -309,7 +310,7 @@ public class ClienteDAO {
         }
     }
 
-    public int obtenerId(Empleado c) {
+    public int obtenerId(Cliente c) {
         int idClient = -1;
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -317,14 +318,14 @@ public class ClienteDAO {
 
         try {
             conn = Conexion.getConnection();
-            String sql = "SELECT idEmployee FROM employee WHERE username = ? AND password = ?";
+            String sql = "SELECT idClient FROM cliente WHERE email = ? AND password = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, c.getUsername());
+            pstmt.setString(1, c.getEmail());
             pstmt.setString(2, c.getPassword());
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                idClient = rs.getInt("idEmployee");
+                idClient = rs.getInt("idClient");
             }
         } catch (SQLException e) {
             e.printStackTrace();

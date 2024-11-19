@@ -1,0 +1,22 @@
+body
+{
+    background-color: rgba(0, 0, 0, 0.150);;
+    font-family: "Open Sans", sans-serif;
+    color: aliceblue;
+
+}
+.nav-link:hover {
+    color: red !important;
+    font-size: bold;
+    transition: 1s;
+}
+.nav-item:hover{
+    color: red !important;
+    font-size: bold;
+    transition: 1s;
+}
+.dropdown-item:hover{
+    color: red !important;
+    font-size: bold;
+    transition: 1s;
+}

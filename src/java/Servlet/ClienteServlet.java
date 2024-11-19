@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Mantenimiento.ClienteDAO;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -21,6 +22,8 @@ import javax.servlet.annotation.WebServlet;
 public class ClienteServlet extends HttpServlet {
 
     private ClienteDAO clienteDAO;
+    private Cliente c = new Cliente();
+    int r;
 
     public void init() {
         clienteDAO = new ClienteDAO();
@@ -36,6 +39,16 @@ public class ClienteServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("accion");
+        if ("signoutClient".equals(action)) {
+            signoutClient(request, response);
+        } else {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no soportada");
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
@@ -45,6 +58,10 @@ public class ClienteServlet extends HttpServlet {
             updateClient(request, response);
         } else if ("delete".equals(action)) {
             deleteClient(request, response);
+        } else if ("loginClient".equals(action)) {
+            loginClient(request, response);
+        } else if ("registerClient".equals(action)) {
+            registerClient(request, response);
         }
     }
 
@@ -57,15 +74,17 @@ public class ClienteServlet extends HttpServlet {
         try {
             String name = request.getParameter("name");
             String lastname = request.getParameter("lastname");
-            String email = (String)request.getParameter("email");
+            String email = (String) request.getParameter("email");
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
+            String password = request.getParameter("password");
             Cliente client = new Cliente();
             client.setName(name);
             client.setLastname(lastname);
             client.setEmail(email);
             client.setPhone(phone);
             client.setAddress(address);
+            client.setPassword(password);
             if (clienteDAO.agregarCliente(client)) {
                 response.sendRedirect("clientMaintenance.jsp");
             } else {
@@ -113,6 +132,46 @@ public class ClienteServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void loginClient(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String Correo = request.getParameter("email");
+        String Contra = request.getParameter("password");
+        c.setEmail(Correo);
+        c.setPassword(Contra);
+        r = clienteDAO.validarClient(c);
+        if (r == 1) {
+            HttpSession session = request.getSession();
+            session.setAttribute("correo", Correo);
+            session.setAttribute("nomC", c.getName());
+            session.setAttribute("idC", clienteDAO.obtenerId(c));
+            response.sendRedirect(request.getContextPath() + "/WebPageForClient/WebPage.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/WebPageForClient/loginClient.jsp?error=true&msg=Error+al+agregar+el+producto");
+        }
+    }
+
+    private void registerClient(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String lastname = request.getParameter("lastname");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String password = request.getParameter("password");
+        c.setName(name);
+        c.setLastname(lastname);
+        c.setEmail(email);
+        c.setPhone(phone);
+        c.setAddress(address);
+        c.setPassword(password);
+    }
+
+    private void signoutClient(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect(request.getContextPath() + "/WebPageForClient/WebPage.jsp");
     }
 
 }
