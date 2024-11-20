@@ -4,5 +4,7 @@ This project seeks to improve the efficiency of the sales process, speed up the 
 # DEPENDENCIES
 - You need the jdbc.mysqlconnector .jar to establish connection with the local database.
 - Download the database: Currently we can only manage the database locally because it is a prototype. Preferably use Xampp for local deployment.
+
 Path(/web/DependenciesForGit)
+
 This will help initialize the project without problems and with existing information (Internet is recommended for uploading images).
