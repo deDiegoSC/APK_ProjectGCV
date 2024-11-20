@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Inicio de Sesi?n</title>
+        <title>Inicio de Sesion</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="CSS/StyleLogin.css">
     </head>
@@ -15,9 +15,9 @@
 
                         <div class="px-5">
                             <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-                            <span class="h1 fw-bold mb-0">Mayoristas APK</span>
+                            <span class="h1 fw-bold mb-0">Mayorista Vania, Fabian y Mauricio</span>
                             <hr>
-                            <img src="img/APKnoDesign.png" style="witdh:200px; height: 400px">
+                            <img src="img/LogonoDesign.png" style="witdh:200px; height: 400px">
                         </div>
 
                         <div class="h-custom-2 px-5 ms-xl-4 pt-xl-0 mt-xl-n5" >

@@ -42,7 +42,7 @@
                 <nav class="navbar navbar-expand-md" style="background-color:beige">
                     <div class="container-fluid">
                         <a class="navbar-brand ms-5" href="/WebPageForClient/WebPage.jsp">
-                            <img src="../img/APKnoDesign.png" alt="Logo" style="height: 40px; width: auto;">
+                            <img src="../img/LogonoDesign.png" alt="Logo" style="height: 40px; width: auto;">
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

@@ -35,7 +35,7 @@
                 <nav class="navbar navbar-expand-md" style="background-color:beige">
                     <div class="container-fluid">
                         <a class="navbar-brand ms-5" href="/WebPageForClient/WebPage.jsp">
-                            <img src="../img/APKnoDesign.png" alt="Logo" style="height: 40px; width: auto;">
+                            <img src="../img/LogonoDesign.png" alt="Logo" style="height: 40px; width: auto;">
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@
             <div class="container-fluid slogan" style="
                  background: url(../img/MayoristaGolosina.webp);">
                 <header>
-                    <h1 class="shadow-sm fw-bold text-light bg-opacity-25 py-3 ms-5">Tienda de APK Mayorista</h1>
+                    <h1 class="shadow-sm text-light bg-opacity-25 py-3 ms-5">Tienda Mayorista</h1>
                 </header>
             </div>
             <!--FIN PANEL-->
@@ -108,12 +108,12 @@
                 <div class="row align-items-start">
                     <!--NAV-PRODUCTO-->
                     <div class="col-3 shadow-lg" style="height: 1000px; position: sticky; top: 0;">
-                        <h1 class="fw-bold fs-1 text-center my-5" style="color:gray;">Categorias</h1>
+                        <h1 class="text-center my-5" style="color:gray;">Categorias</h1>
                         <div class="container">
                             <ul>
                                 <% List<Categoria> categor = CategoriaDAO.listarCategorias();
                 for (Categoria cate : categor) {%>
-                                <li class="fs-3 fw-semibold py-4">
+                                <li class="fs-4 py-4">
                                     <a href="#<%= cate.getNameCategory()%>" style="color:#c93900;">
                                         <%= cate.getNameCategory()%>
                                     </a>
@@ -143,7 +143,7 @@
                             for (Categoria cate : category) {
                         %>
                         <section id="<%= cate.getNameCategory()%>">
-                            <h1 class="fw-normal display-1 py-3 text-center border border-3 rounded-4 shadow-sm" style="background-color: #ffe0ba">-En <%= cate.getNameCategory()%>-</h1>
+                            <h2 class="display-1 py-3 text-center border border-3 rounded-4 shadow-sm" style="background-color: #ffe0ba">-En <%= cate.getNameCategory()%>-</h2>
                             <div class="container d-flex flex-wrap" style="align-content: center;">
                                 <%
                                     List<Productos> productos = ProductoDAO.listarProductos();
@@ -223,7 +223,7 @@
                             <div class="footer-fila">
                                 <div class="links">
                                     <h4>Empresa</h4>
-                                    <ul><li><a href="">APK Mayorista</a></li></ul>
+                                    <ul><li><a href="">Mayorista</a></li></ul>
                                 </div>
                                 <div class="links">
                                     <h4>Productos</h4>

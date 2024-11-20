@@ -13,11 +13,11 @@
                 <div class="row">
                     <div class="col-sm-6 text-black">
 
-                        <div class="px-5">
+                        <div class="px-5 text-center">
                             <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-                            <span class="h1 fw-bold mb-0">Mayoristas APK - Cliente</span>
+                            <span class="h1 fw-bold mb-0">Tienda Mayorista Vania, Fabia y Mauricio</span>
                             <hr>
-                            <img src="../img/APKnoDesign.png" style="witdh:200px; height: 400px">
+                            <img src="../img/LogonoDesign.png" style="witdh:200px; height: 400px">
                         </div>
 
                         <div class="h-custom-2 px-5 ms-xl-4 pt-xl-0 mt-xl-n5" >
